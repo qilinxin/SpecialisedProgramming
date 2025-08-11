@@ -1,0 +1,72 @@
+Course: COMP SCI 7007 – Specialised Programming, Semester 1/2025.         
+
+Name: Linxin Qi
+ID: a1915674
+Practice problem/Exam and number:
+
+Week:	2
+
+
+
+*******************
+* Description  * 
+*******************
+
+
+1. List the problems you attempted, and Java API Classes and methods you used to solve each problem.
+
+[Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
+
+Problem1:
+no problem
+
+
+Problem2:
+String and char cannot be compared directly, type conversion is required
+
+
+*******************
+* Challenges  * 
+*******************
+2. What challenges have you faced to solve the given problems?
+
+Problem1:
+This problem was very simple for me. I finished writing it in just 5 minutes. However, I encountered many problems when using Gradescope.
+The teacher in the workshop helped me solve them.
+
+Problem2:
+I had never used Java to deal with this kind of matrix problem before, so I spent a lot of time thinking.
+Because my personal solution involves a triple loop, it is difficult to debug.
+
+************************
+* Solution Approach  *
+************************
+
+3. Discuss how you approach the problem and how you solve the problem.
+For question 1, after reading all the content, I felt that a loop was needed. My first instinct was to use a while loop,
+and the result was correct, so I didn't try a for loop. Then, the modulus of 0 can be used as a condition.
+If the modulus result is 0, the leaf will be eaten, and cnt++ is used to obtain the final number.
+
+For question 2, this problem is much more complex than the previous one. Initially, I thought I'd need at least two loops—one for rows
+and one for columns. But when I tried to implement it, I realized that after getting the position of the number,
+I still needed to start a loop to compare the numbers. So I thought, could I start a loop from 0 to 9, since there are only 10 numbers?
+But when I tried to implement this method, I found that it was still too complicated, even requiring another loop to find the result.
+So I abandoned my previous plan. It took me a while to figure out the concept of offsets, and then I had the code complete.
+However, the code was difficult to debug, so I asked chatGPT for help.
+
+4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
+These questions are still quite simple to me, I didn't learn much from them
+
+5. Which area you focused on improving (eg. speed, fluency, algorithmic design,  coding)?
+algorithmic design and speed.
+
+6. What are your goals for the next practice problems? 
+I hope I can complete the basic algorithm writing more proficiently
+
+7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
+After I finished writing the code and debugged it several times, I asked gpt to help check for code bugs.
+I know what code I want and what code is correct. AI tools can greatly reduce debugging time.
+
+
+
+
