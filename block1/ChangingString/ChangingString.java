@@ -24,15 +24,15 @@ public class ChangingString {
     return differences.stream().mapToInt(Integer::intValue).sum() + K;
   }
 
-  public static void main(String[] args) {
-//    int  distance = distance("ab", "ba", 2);
-//    int  distance = distance("aa", "aa", 2);
-//    int  distance = distance("aaa", "baz", 1);
-//    int  distance = distance("fdfdfdfdfdsfabasd", "jhlakfjdklsakdjfk", 8);
-    int  distance = distance("aa", "bb", 2);
-//    int  distance = distance("ab", "ba", 2);
-    System.out.println(distance);
-  }
+//  public static void main(String[] args) {
+////    int  distance = distance("ab", "ba", 2);
+////    int  distance = distance("aa", "aa", 2);
+////    int  distance = distance("aaa", "baz", 1);
+////    int  distance = distance("fdfdfdfdfdsfabasd", "jhlakfjdklsakdjfk", 8);
+//    int  distance = distance("aa", "bb", 2);
+////    int  distance = distance("ab", "ba", 2);
+//    System.out.println(distance);
+//  }
 }
 
 
