@@ -24,14 +24,14 @@ public class AlternateColors {
     return currentColor;
   }
 
-  public static void main(String[] args) {
-    long r = 653;
-    long g = 32;
-    long b = 1230;
-    long k = 556;
-
-
-    String res = getColor(r, g, b, k);
-    System.out.println(res);
-  }
+//  public static void main(String[] args) {
+//    long r = 653;
+//    long g = 32;
+//    long b = 1230;
+//    long k = 556;
+//
+//
+//    String res = getColor(r, g, b, k);
+//    System.out.println(res);
+//  }
 }
