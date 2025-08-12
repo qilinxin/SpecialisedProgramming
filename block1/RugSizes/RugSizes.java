@@ -5,6 +5,10 @@ public class RugSizes {
     int count = 0;
     for(int i = 1; i <= a; i++){
       double b = (double) area /i;
+      if (b != (int) b) {
+        continue;
+      }
+//      System.out.println("long ===" + i + "; width ====" + b);
       if (!(i % 2 == 0 && b % 2 == 0) || i == b) {
         count ++;
       }
@@ -15,7 +19,7 @@ public class RugSizes {
   }
 
   public static void main(String[] args) {
-    int count = rugCount(8);
+    int count = rugCount(30);
     System.out.println(count);
   }
 
