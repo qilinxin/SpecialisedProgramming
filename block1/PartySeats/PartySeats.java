@@ -9,20 +9,21 @@ public class PartySeats {
     if (people.size() % 4 != 0) {
       return new String[]{};
     }
-    List<String> boys = new ArrayList<>(people.stream()
+    List<String> boys = people.stream()
         .map(String::trim)
         .map(s -> s.split("\\s+"))
         .filter(p -> p.length >= 2 && p[1].equalsIgnoreCase("boy"))
         .map(p -> p[0])
         .sorted()
-        .toList());
+        .collect(Collectors.toList());
+
     List<String> girls = people.stream()
         .map(String::trim)
         .map(s -> s.split("\\s+"))
         .filter(p -> p.length >= 2 && p[1].equalsIgnoreCase("girl"))
         .map(p -> p[0])
         .sorted()
-        .toList();
+        .collect(Collectors.toList());
     if (boys.size() != girls.size()) {
       return new String[]{};
     }
