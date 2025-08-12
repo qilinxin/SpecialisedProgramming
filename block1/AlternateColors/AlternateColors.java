@@ -23,12 +23,20 @@ public class AlternateColors {
       return "GREEN";
     }
     if (r == 0) {
-      return k % 2 == 0 ? "BLUE" : "GREEN";
+      long m = Math.min(g, b);
+      if (k <= 2L * m) return (k % 2 == 1) ? "GREEN" : "BLUE";
+      return (g > b) ? "GREEN" : "BLUE";
     }
     if (g == 0) {
-      return k % 2 == 0 ? "BLUE" : "RED";
+      long m = Math.min(r, b);
+      if (k <= 2L * m) return (k % 2 == 1) ? "RED" : "BLUE";
+      return (r > b) ? "RED" : "BLUE";
     }
-    return k % 2 == 0 ? "GREEN" : "RED";
+
+    long m = Math.min(r, g);
+    if (k <= 2L * m) return (k % 2 == 1) ? "RED" : "GREEN";
+    return (r > g) ? "RED" : "GREEN";
+
   }
 
 //  public static void main(String[] args) {
