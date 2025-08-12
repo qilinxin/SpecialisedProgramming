@@ -42,8 +42,11 @@ and "distance" was changed to the sum of the differences in the ASCII code value
 ************************
 
 3. Discuss how you approach the problem and how you solve the problem.
-The first question needs to be processed by a loop. Different colors are processed differently in the loop, but the order of the
-initial colors is fixed, so it is easy to handle. Adding the processing logic after the ball is hit, the whole is very easy to write.
+At first, I think the first question needs to be processed by a loop. But it fails when submit to gradescope and result is timeout.
+The original time complexity is O(n), timeouts may occur when processing large amounts of data. After thinking about it,
+I found that the loop is regular and can be optimized to O(1) time complexity. I optimized some time to debug and verify the code,
+and the final result was satisfactory.
+
 
 The difficulty for me in the second question was understanding the task content. I was a little confused after reading it for a long time.
 After understanding the content, the coding difficulty was also very low. Iterate through the string, use the subscript to get the
@@ -51,13 +54,15 @@ letter corresponding to the other string, get the difference and put it into a l
 then use K to loop, and delete the largest element as long as the difference is not 0. Finally, summarize the value of distance
 
 4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
-These questions are still quite simple to me, I didn't learn much from coding
+After completing the provided case, it does not mean that the code is problem-free. For example,  need to think about the reasons
+for the code timeout during this week's work and think more about the execution efficiency.It is always good to consciously reduce
+the time complexity of code execution
 
 5. Which area you focused on improving (eg. speed, fluency, algorithmic design,  coding)?
 algorithmic design and speed.
 
 6. What are your goals for the next practice problems? 
-I hope I can complete the basic algorithm writing more proficiently
+Ability to think more comprehensively about the code execution process, improving code robustness and execution efficiency
 
 7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
 I use chatGPT to help me understand the second question. But all the code were written by myself. The tool help me understand the task
