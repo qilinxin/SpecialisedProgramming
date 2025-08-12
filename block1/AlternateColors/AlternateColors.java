@@ -2,7 +2,7 @@ public class AlternateColors {
 
   static String getColor(long r, long g, long b, long k) {
 
-    String nextColor = "RED";
+    String nextColor = r > 0 ? "RED" : g > 0 ? "GREEN" : b > 0 ? "BLUE" : "RED";
     String currentColor = "";
     for (;k > 0; k--) {
       if (r > 0 && "RED".equals(nextColor)) {
