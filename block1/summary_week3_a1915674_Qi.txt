@@ -1,0 +1,70 @@
+Course: COMP SCI 7007 – Specialised Programming, Semester 1/2025.         
+
+Name: Linxin Qi
+ID: a1915674
+Practice problem/Exam and number:
+
+Week:	3
+
+
+
+*******************
+* Description  * 
+*******************
+
+
+1. List the problems you attempted, and Java API Classes and methods you used to solve each problem.
+
+[Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
+
+Problem1:
+Math.floor, Math.sqrt, Forced type conversion
+
+Problem2:
+Array and list conversion
+
+*******************
+* Challenges  * 
+*******************
+2. What challenges have you faced to solve the given problems?
+
+Problem1:
+No challenge
+
+Problem2:
+No challenge
+
+************************
+* Solution Approach  *
+************************
+
+3. Discuss how you approach the problem and how you solve the problem.
+The first problem that comes to mind is the loop. Since the data must be different, so we can use the square root method to get the
+upper limit of the loop and add data verification in the loop.
+
+The first thing that comes to mind for the second question is that the number of boys and girls must be the same, so the total number
+must be a multiple of two, and the male and female hosts need to be consistent on the left and right sides, so the number must be
+divisible by four. I am more familiar with the API corresponding to the list, so I converted the array into a list, and then used the
+lambda expression to filter and sort to get the content I need. The number of boys and girls must be the same. In this case, the boys'
+list is used as the base, and the data in the girls' list is inserted into the boys' list. Notice that the subscripts of the first half
+and the second half are different because the logic after the female host is inconsistent. In the generated list, the subscript of the
+female host must be half of the list length, and finally insert HOST at the first place in the list.
+
+
+4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
+After implementing the function, I asked the AI tool to help me optimize the code, and found that there are still many parts that can
+be improved.
+
+5. Which area you focused on improving (eg. speed, fluency, algorithmic design,  coding)?
+algorithmic design and speed.
+
+6. What are your goals for the next practice problems? 
+Ability to think more comprehensively about the code execution process, improving code robustness and execution efficiency
+
+7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
+After finishing these questions, I asked ChatGPT for suggestions for improvement. There’s still a lot I can work on,
+and learning from its reasoning will help me write better code.
+
+
+
+
