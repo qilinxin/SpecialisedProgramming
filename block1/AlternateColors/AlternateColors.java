@@ -26,18 +26,18 @@ public class AlternateColors {
       return k % 2 == 0 ? "BLUE" : "GREEN";
     }
     if (g == 0) {
-      return k % 2 == 0 ? "BLUE" : "RED";
+      return k % 2 == 0 ? "RED" : "BLUE";
     }
     return k % 2 == 0 ? "GREEN" : "RED";
   }
 
-//  public static void main(String[] args) {
-//    long r = 28;
-//    long g = 4;
-//    long b = 16;
-//    long k = 40;
-//
-//    String res = getColor(r, g, b, k);
-//    System.out.println(res);
-//  }
+  public static void main(String[] args) {
+    long r = 28;
+    long g = 4;
+    long b = 16;
+    long k = 40;
+
+    String res = getColor(r, g, b, k);
+    System.out.println(res);
+  }
 }
