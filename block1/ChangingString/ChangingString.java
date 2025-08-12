@@ -14,8 +14,8 @@ public class ChangingString {
     differences.sort(Integer::compare);
 
     for (;K > 0; K--) {
-      if (!differences.isEmpty() && differences.getLast() != 0) {
-        differences.removeLast();
+      if (!differences.isEmpty() && differences.get(differences.size()-1) != 0) {
+        differences.remove(differences.size()-1);
       } else {
         break;
       }
