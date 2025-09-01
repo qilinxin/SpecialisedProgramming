@@ -32,7 +32,7 @@ public class NumberSplit {
             product *= Long.parseLong(part);
 
             // successor 必须是正整数
-            if (product > 0 && product <= Integer.MAX_VALUE) {
+            if (product >= 0 && product <= Integer.MAX_VALUE) {
                 int next = (int) product;
                 int candidate = 1 + longestSequence(next);
                 best = Math.max(best, candidate);
@@ -46,8 +46,8 @@ public class NumberSplit {
     // 简单自测
     public static void main(String[] args) {
         NumberSplit ns = new NumberSplit();
-        System.out.println(ns.longestSequence(234));  // 5
-        System.out.println(ns.longestSequence(92));   // 4 -> 92,18,8
-        System.out.println(ns.longestSequence(24));   // 2 -> 24,8
+        System.out.println(ns.longestSequence(99999));  // 5
+//        System.out.println(ns.longestSequence(92));   // 4 -> 92,18,8
+//        System.out.println(ns.longestSequence(24));   // 2 -> 24,8
     }
 }
