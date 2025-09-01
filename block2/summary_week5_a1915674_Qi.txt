@@ -1,0 +1,70 @@
+Course: COMP SCI 7007 – Specialised Programming, Semester 1/2025.         
+
+Name: Linxin Qi
+ID: a1915674
+Practice problem/Exam and number:
+
+Week:	5
+
+
+
+*******************
+* Description  * 
+*******************
+
+
+1. List the problems you attempted, and Java API Classes and methods you used to solve each problem.
+
+[Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
+
+Problem1:
+Math.floor, Math.sqrt, Forced type conversion
+
+Problem2:
+Array and list conversion
+
+*******************
+* Challenges  * 
+*******************
+2. What challenges have you faced to solve the given problems?
+
+Problem1:
+I thought about how to judge whether it is a bribe for a long time, but I couldn't figure it out because the amount is different. Finally, I used AI tools to
+find out that the key point of this problem is dp[i][c] = the maximum deterrent value d that can be achieved after dealing with the first i monsters and the total cost is c.
+
+Problem2:
+The biggest challenge was understanding how backtracking + pruning worked in this problem, which was completely new to me.
+
+Problem3:
+FibonacciDiv2 is relatively simple to implement. I immediately thought of generating the Fibonacci sequence for data comparison. Overall, there are not many challenges.
+
+Problem4:
+The challenge for me is to split the sub-problems and write recursive functions. Although I have written recursion before, they were all simple ones such as Fibonacci.
+I have never written recursion with relatively complex logic. At present, I have no idea of how to deal with algorithmic problems and I am not proficient enough.
+
+************************
+* Solution Approach  *
+************************
+
+3. Discuss how you approach the problem and how you solve the problem.
+
+The questions in week 5 were a bit difficult for me. I only understood the code given by AI, so I can't provide a specific solution.
+I will practice more related questions and strive to complete them independently next week.
+
+4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
+After implementing the function, I asked the AI tool to help me optimize the code, and found that there are still many parts that can
+be improved.
+
+5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
+Algorithmic,I can hardly understand this week's exercises without the help of AI tools. I still have some shortcomings in algorithms and need more practice.
+
+6. What are your goals for the next practice problems?
+Try to complete the related exercises independently, instead of waiting for AI to give you the solution and then trying to understand each step like this week.
+
+7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
+I used chatgpt during this practice. I spent at least half an hour on each question. I had some rough ideas, but it was difficult to write them and I couldn't
+complete the function. So I asked AI to provide the complete code and then I understood it myself.
+
+
+
+
