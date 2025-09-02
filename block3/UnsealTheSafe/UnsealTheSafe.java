@@ -15,7 +15,7 @@ public class UnsealTheSafe {
       {6,8}      // 9
   };
 
-  public static long count(int N) {
+  public static long countPasswords(int N) {
     long res = 0;
     long[] finalRes = new long[10];
     Arrays.fill(finalRes, 1L);
@@ -36,7 +36,7 @@ public class UnsealTheSafe {
   }
 
   public static void main(String[] args) {
-    long res = count(3);
+    long res = countPasswords(3);
     System.out.println(res);
   }
 }
