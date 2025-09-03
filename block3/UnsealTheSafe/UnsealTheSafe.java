@@ -23,8 +23,8 @@ public class UnsealTheSafe {
       long[] currentRes = new long[10];
       for (int num = 0; num <= 9; num++) {
         int[] currentNumAdj = ADJACENT[num];
-        for (int adjPosition = 0; adjPosition < currentNumAdj.length; adjPosition++) {
-          currentRes[num] += finalRes[currentNumAdj[adjPosition]];
+        for (int i : currentNumAdj) {
+          currentRes[num] += finalRes[i];
         }
       }
       finalRes = currentRes;
