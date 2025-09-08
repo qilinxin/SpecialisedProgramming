@@ -17,59 +17,81 @@ Week:	6
 
 [Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
 
-Problem1:
-java.util.Arrays (Arrays.fill) Integer.parseInt
+Problem1: UnsealTheSafe
+java.util.Arrays（fill）
 
-Problem2:
-java.util.Arrays (Arrays.asList)
+Problem2: RGBStreet
+java.util.Arrays（fill）、java.lang.Math(min) 、Integer.parseInt
 
-Problem3:
+Problem3: MatchNumbersEasy
+java.lang.StringBuilder
 
-
-Problem4:
-
+Problem4: ForestGarbage
+java.util.PriorityQueue
+java.util.Arrays（fill）、Custom Node class (r,c,garbage,near)
 
 *******************
 * Challenges  * 
 *******************
 2. What challenges have you faced to solve the given problems?
+Problem1: UnsealTheSafe
+The keyboard image needs to be converted into something that the code can understand before analysis
+I roughly know that I need to use the concept of dp to get the optimal result at each step, but I don’t know how to define it.
+To initialize the data, need to define the data structure
 
-Problem1:
-I thought about how to judge whether it is a bribe for a long time, but I couldn't figure it out because the amount is different. Finally, I used AI tools to
-find out that the key point of this problem is dp[i][c] = the maximum deterrent value d that can be achieved after dealing with the first i monsters and the total cost is c.
+Problem2: RGBStreet
+The challenge for me is to convert the content described in the question into a distribution problem in the form of DP
 
-Problem2:
-The biggest challenge was understanding how backtracking + pruning worked in this problem, which was completely new to me.
+Problem3: MatchNumbersEasy
+The first challenge is to define the dp format
+Secondly, the obtained result must be converted into a number, and it must be the largest number.
+The third is to consider whether all the matches need to be used up, because the examples given are all used up.
 
-Problem3:
-FibonacciDiv2 is relatively simple to implement. I immediately thought of generating the Fibonacci sequence for data comparison. Overall, there are not many challenges.
-
-Problem4:
-The challenge for me is to split the sub-problems and write recursive functions. Although I have written recursion before, they were all simple ones such as Fibonacci.
-I have never written recursion with relatively complex logic. At present, I have no idea of how to deal with algorithmic problems and I am not proficient enough.
+Problem4: ForestGarbage
+I can't convert the requirements into the corresponding model
 
 ************************
 * Solution Approach  *
 ************************
 
 3. Discuss how you approach the problem and how you solve the problem.
+question1:
+Because only up, down, left, and right movement is allowed, I abstracted this layout into an adjacency list called ADJACENT: ADJACENT[d] stores all the numbers that can be reached in one step from number d. Translating images into code
+If the password is greater than 1, the number of the end digit - 1 is only related to the end digit, so  can find the relationship between n and n-1 and turn it into dp
+Finally, it is a loop process, paying attention to data boundaries, using test results to fix code defects, etc.
 
-The questions in week 5 were a bit difficult for me. I only understood the code given by AI, so I can't provide a specific solution.
-I will practice more related questions and strive to complete them independently next week.
+question2:
+Now convert the input data into the list structure that I am more accustomed to processing
+Initialize the cost of each color
+Because the colors cannot be the same, the cost of the last color is related to the cost of the first two different colors. Write the formula
+Final test and verification
+
+question3:
+The final answer to this question is that we don’t need to use up all the matches from the test case, so the idea is to first find a non-zero number, and then use the cheapest number to fill the longest possible number of digits.
+Then start from the top and use the remaining matches to make the numbers as big as possible, gradually moving to the bottom.
+
+question4:
+I didn't quite understand this problem, and chatgpt helped me solve it. It's a two-level shortest path problem:
+First, minimize the number of garbage squares ('g') passed through on the path.
+If the 1s are the same, then minimize the number of "neighboring garbage" squares passed through on the path (reaching a '.' with at least one of its four neighbors being a 'g').
+Use Dijkstra to perform a lexicographical comparison of the cost pairs (garbageCnt, nearCnt).
 
 4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
-After implementing the function, I asked the AI tool to help me optimize the code, and found that there are still many parts that can
-be improved.
+From this experience, I learned to develop better modeling skills, such as converting "image/text rules → computable structures."
+For example, I mapped the keyboard to an adjacency list, converted street paint into a row-column cost matrix, and converted a forest grid into a graph.
+I gained a general understanding of the operational logic and design of DP, and used concise DP states to express constraints—UnsealTheSafe used "last digit layered counting" and RGBStreet used "minimum cost of the previous building of a different color"
 
 5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
-Algorithmic,I can hardly understand this week's exercises without the help of AI tools. I still have some shortcomings in algorithms and need more practice.
+Algorithmic design, the algorithm is very clever. Many of these problems are still close to real life. For example, the house coloring problem will be applied on the map. I hope I can learn more about it.
 
 6. What are your goals for the next practice problems?
-Try to complete the related exercises independently, instead of waiting for AI to give you the solution and then trying to understand each step like this week.
+Compared with last week, the number of questions I can do this week has increased significantly, but I still can't finish them all. Next week, after completing another major assignment for another course, I will put more effort into algorithm practice.
 
 7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
-I used chatgpt during this practice. I spent at least half an hour on each question. I had some rough ideas, but it was difficult to write them and I couldn't
-complete the function. So I asked AI to provide the complete code and then I understood it myself.
+For the third question, I asked AI to give a solution when I used the DP method at the beginning, but I didn’t need to use up all the left and right matches in the end, so the solution was the same as my initial solution.
+I basically completed the fourth question with the help of AI.
+I think on my own first, and then use it to verify high-level ideas such as modeling and state transfer. During the practice, I ask it to construct counterexamples and boundary tests, and compare different solutions
+(such as DP/greedy/shortest path), helping me quickly locate bugs and make trade-offs.
 
 
 
