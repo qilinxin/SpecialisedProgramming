@@ -1,5 +1,3 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 public class MatchNumbersEasy {
   public static String maxNumber(int[] matches, int n) {
     final int NEG = -1000;
