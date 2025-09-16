@@ -5,7 +5,7 @@ public class TimeTravellingCellar {
     int[] maxProfit2 = {0, -1};
     int[] minDecay = {0, Integer.MAX_VALUE};
     int[] minDecay2 = {0, Integer.MAX_VALUE};
-    for (int i = 1; i < profit.length; i++) {
+    for (int i = 0; i < profit.length; i++) {
       if (profit[i] > maxProfit[1]) {
         maxProfit2[0] = maxProfit[0];
         maxProfit2[1] = maxProfit[1];
@@ -16,7 +16,7 @@ public class TimeTravellingCellar {
         maxProfit2[1] = profit[i];
       }
     }
-    for (int i = 1; i < decay.length; i++) {
+    for (int i = 0; i < decay.length; i++) {
      if (decay[i] < minDecay[1]) {
         minDecay2[0] = minDecay[0];
         minDecay2[1] = minDecay[1];
