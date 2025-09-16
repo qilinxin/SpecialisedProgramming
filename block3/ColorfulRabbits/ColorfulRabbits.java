@@ -17,9 +17,9 @@ public class ColorfulRabbits {
       String key = entry.getKey();
       int value = entry.getValue();
       int keyValue = Integer.parseInt(key);
-      if (keyValue == 0) {
-        continue;
-      }
+//      if (keyValue == 0) {
+//        continue;
+//      }
       int realKeyValue = keyValue + 1;
       if (value  % realKeyValue == 0) {
         count += realKeyValue * value / realKeyValue;
@@ -33,7 +33,7 @@ public class ColorfulRabbits {
   }
 
   public static void main(String[] args) {
-    int[] a = {2, 2, 44, 2, 2, 2, 444, 2, 2};
+    int[] a = {0};
     int res = getMinimum(a);
     System.out.println(res);
   }
