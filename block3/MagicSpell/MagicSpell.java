@@ -24,12 +24,10 @@ public class MagicSpell {
       }
     }
     return String.valueOf(spellArray);
-
   }
 
   public static void main(String[] args) {
-    String spell = "AZBASGHNAZAHBNVZZGGGAGGZAZ"
-        ;
+    String spell = "AZBASGHNAZAHBNVZZGGGAGGZAZ";
     String res = fixTheSpell(spell);
     System.out.println(res);
   }
