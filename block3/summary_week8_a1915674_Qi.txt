@@ -1,0 +1,102 @@
+Course: COMP SCI 7007 – Specialised Programming, Semester 1/2025.         
+
+Name: Linxin Qi
+ID: a1915674
+Practice problem/Exam and number:
+
+Week:	8
+
+*******************
+* Description  * 
+*******************
+
+
+1. List the problems you attempted, and Java API Classes and methods you used to solve each problem.
+
+[Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
+
+Problem1: CastleGuards
+String.valueOf
+
+Problem2: TimeTravellingCellar
+Integer.MAX_VALUE
+
+Problem3: ColorfulRabbits
+map.entrySet()
+map.containsKey
+
+Problem4: MagicSpell
+String.valueOf
+
+*******************
+* Challenges  * 
+*******************
+2. What challenges have you faced to solve the given problems?
+Problem1: CastleGuards
+When I saw this question, I thought of using traversal to obtain the data of empty rows and empty columns, but I was a little hesitant about the handling of the intersection of empty rows and empty columns.
+
+Problem2: TimeTravellingCellar
+This problem can be easily solved by traversing the profit array to get the maximum value and the decay array to get the minimum value.
+However, the difficulty lies in the fact that the subscripts of the maximum and minimum values may be the same, so it is
+necessary to obtain the second largest and second smallest values simultaneously.
+
+Problem3: ColorfulRabbits
+The difficulty of this problem lies in the grouping of data. Different data need to be divided into different groups, and then the data values and data volume in the group are used to determine how many groups
+of rabbits the same data corresponds to, and the specific number is obtained by summarizing. At the same time, the processing of boundary values is also more troublesome.
+
+Problem4: MagicSpell
+This question did not encounter too much difficulty, and the requirements of the question were completed after two traversals.
+
+************************
+* Solution Approach  *
+************************
+
+3. Discuss how you approach the problem and how you solve the problem.
+question1:
+My approach is to use a double loop: scan row by row, breaking upon encountering an 'X' to indicate that the row is occupied/safe. If no 'X' is encountered at the end of the row, return rowMissing++.
+A double loop: scan column by column, using the same logic as above, counting columnMissings.
+Returning the max value resolves the "crossover" issue.
+
+question2:
+Find the two largest profit values. maxProfit records the maximum value and its index (value/index).
+maxProfit2 records the second-largest value and its index. This is done with a single linear scan.
+Find the two smallest decay values. minDecay records the minimum value and its index. minDecay2 records the second-smallest value and its index.
+Again, a single linear scan. To handle "same-bucket conflicts," if the index of maxProfit and minDecay differs, simply take maxProfit.value - minDecay.value.
+If they are the same (the best profit and the smallest decay come from the same bucket), the answer can only be one of two possible options:
+Use the second-largest profit to match the smallest decay: maxProfit2.value - minDecay.value
+Use the largest profit to match the second-smallest decay: maxProfit.value - minDecay2.value
+Take the larger of the two: Math.max(...).
+
+question3:
+My approach: First, count the frequency, adding c occurrences of each answer x to a map (you're using Map<String,Integer>, so convert the int to a String as the key).
+Then group by answer and round up. For each different answer x:
+The number of people in a group with the same color must be x+1 (because if you answer "x people have the same color as me," including "me," there are x+1 people in the group).
+There are c rabbits in this category, so at least
+groups = ceil(c / (x+1)) groups are needed,
+which will contribute groups * (x+1) rabbits to the total number of rabbits.
+My code uses integer division and modulo to implement this rounding up:
+
+question4:
+My approach: First pass: Collect the original order of the A/Z sequences.
+Store all A/Z sequences in the azArray, from left to right.
+Second pass: Write the A/Z sequences back from right to left.
+Because writing back is from right to left, while reading the azArray is from left to right, the first A/Z sequence collected is placed in the rightmost A/Z sequence,
+and the second in the second-to-last... This effectively reverses the order of all A/Z sequences; non-A/Z sequences remain unchanged (they are not overwritten).
+Finally, the result is returned, converting the modified spellArray into a string and returning it.
+
+4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
+Model first, then code; convert text into invariants and formulas; use frequency grouping, extreme value selection, double pointer/double traversal, and other templates to reduce
+dimensionality; address constraints and boundaries upfront; implement with linear complexity and ensure correctness with concise proofs. Develop reusable patterns to improve problem-solving efficiency and robustness.
+
+5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
+Algorithmic design, algorithm design is very clever. Although the code this week is not as complicated as the previous one, I did not handle the original DP well, and I still need to continue to invest time.
+
+6. What are your goals for the next practice problems?
+This week's tasks were completed smoothly. I hope that after the holiday, my coding skills will improve and I can complete the tasks smoothly.
+
+7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
+All of the solutions to this week's problems were independently developed. During the code writing and debugging phase, I asked GPT to provide further fixes, as the code I solved was still significantly
+different from the theoretically optimal code, with lower time and space complexity and parameter variable usage. Learning AI-based thinking can help improve your own code quality.
+
+
+
