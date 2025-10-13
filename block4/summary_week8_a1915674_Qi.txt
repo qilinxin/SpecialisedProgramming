@@ -36,14 +36,13 @@ Problem1: CatGame
 My understanding of this question is to get the minimum value between the minimum, maximum, by adding or subtracting a given number based on the original data. So the first step is to sort first,
 and then find the critical point of addition or subtraction, but there are challenges in determining the critical point.
 
-Problem2: TimeTravellingCellar
-This problem can be easily solved by traversing the profit array to get the maximum value and the decay array to get the minimum value.
-However, the difficulty lies in the fact that the subscripts of the maximum and minimum values may be the same, so it is
-necessary to obtain the second largest and second smallest values simultaneously.
+Problem2: CellRemoval
+The first was understanding the content. It was long and detailed, and I didn't understand the input parameters.
+The second challenge was converting the input array into a tree structure after understanding the problem. Since Java doesn't have a native tree structure, I had to implement it myself.
+The third challenge was how to count the number of valid cells after implementing the tree structure.
 
-Problem3: ColorfulRabbits
-The difficulty of this problem lies in the grouping of data. Different data need to be divided into different groups, and then the data values and data volume in the group are used to determine how many groups
-of rabbits the same data corresponds to, and the specific number is obtained by summarizing. At the same time, the processing of boundary values is also more troublesome.
+Problem3: RockStar
+The challenge of this question is to figure out the order in which the songs connect and not mix up the order in which they are played.
 
 Problem4: MagicSpell
 This question did not encounter too much difficulty, and the requirements of the question were completed after two traversals.
@@ -62,23 +61,15 @@ of all cats, recording the minimum and maximum values. The difference between th
 3. Test and verify the results
 
 question2:
-Find the two largest profit values. maxProfit records the maximum value and its index (value/index).
-maxProfit2 records the second-largest value and its index. This is done with a single linear scan.
-Find the two smallest decay values. minDecay records the minimum value and its index. minDecay2 records the second-smallest value and its index.
-Again, a single linear scan. To handle "same-bucket conflicts," if the index of maxProfit and minDecay differs, simply take maxProfit.value - minDecay.value.
-If they are the same (the best profit and the smallest decay come from the same bucket), the answer can only be one of two possible options:
-Use the second-largest profit to match the smallest decay: maxProfit2.value - minDecay.value
-Use the largest profit to match the second-smallest decay: maxProfit.value - minDecay2.value
-Take the larger of the two: Math.max(...).
+My solution to this problem is to first define a custom node and create nodes for all nodes numbered i.
+Second, create a corresponding tree based on the node, attaching node i to its parent node based on parent[i]. The subscript where parent[i] == -1 is the root.
+Third, retrieve the result. If the deleted node is the root, return 0. Otherwise, perform a DFS from the root: skip the entire tree if a deleted node is encountered;
+recursively count the number of leaves for each child node; if the current node has no "still existing" children, it is a leaf node.
+Finally, summarize the results.
 
 question3:
-My approach: First, count the frequency, adding c occurrences of each answer x to a map (you're using Map<String,Integer>, so convert the int to a String as the key).
-Then group by answer and round up. For each different answer x:
-The number of people in a group with the same color must be x+1 (because if you answer "x people have the same color as me," including "me," there are x+1 people in the group).
-There are c rabbits in this category, so at least
-groups = ceil(c / (x+1)) groups are needed,
-which will contribute groups * (x+1) rabbits to the total number of rabbits.
-My code uses integer division and modulo to implement this rounding up:
+My solution is as follows: first play ff, then use fs to transition to ss, and finally alternate sf and fs until one of them is 0. Based on this, use conditionals to make judgments to get the final result.
+If there is no song that begins with f, then start with ss and end with sf
 
 question4:
 My approach: First pass: Collect the original order of the A/Z sequences.
