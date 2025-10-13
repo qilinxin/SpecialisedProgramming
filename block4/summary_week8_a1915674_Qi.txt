@@ -77,18 +77,24 @@ started the number yet and choose 0, remain in the leading-zero phase and do not
 are processed, count the path only if we have started. We memoize states only when not tight (free states), so each such state is computed once. Single-digit numbers are naturally counted as jumpy.
 
 4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
-Model first, then code; convert text into invariants and formulas; use frequency grouping, extreme value selection, double pointer/double traversal, and other templates to reduce
-dimensionality; address constraints and boundaries upfront; implement with linear complexity and ensure correctness with concise proofs. Develop reusable patterns to improve problem-solving efficiency and robustness.
+My common feeling about these problems is: Don't just try to force a solution right away. First, "see the problem clearly and break it down." First, identify the structure: some lend themselves to "lining up first,
+then finding a split point," some naturally lend themselves to "parent pointers → building a tree one by one," some require "discarding whatever can be picked up for free first, then consuming them alternately according to the rules,"
+and still others require "bitwise counting, counting all the way through." Then, transform the constraints into easily manipulated switches and states: for example, "Does it start?", "Is it stuck at the upper bound?", "What's the previous digit?",
+"Deleting a node means the entire subtree is gone?", "The end is near, so you can only connect to the beginning." By incorporating these into the transitions, the code will naturally be streamlined.
+In terms of approach, strive for stability: greedy where provable, scan all possible splits, and memoize any state that can be cached. Boundaries should also be considered upfront: what if the root is deleted, how to start without a quick start,
+and whether leading zeros count. This way, brute-force structure becomes simpler, the thinking becomes clearer, the code becomes shorter, and testing becomes more reliable. The biggest improvement is: when I encounter unfamiliar questions in the future,
+I can first look for "element + constraint + transfer", choose a convenient model (enumeration/tree/greedy/DP), and I won't panic.
 
 5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
 Algorithmic design, algorithm design is very clever. Although the code this week is not as complicated as the previous one, I did not handle the original DP well, and I still need to continue to invest time.
 
 6. What are your goals for the next practice problems?
-This week's tasks were completed smoothly. I hope that after the holiday, my coding skills will improve and I can complete the tasks smoothly.
+I hope my algorithmic skills can keep up with the difficulty of the course.
 
 7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
-All of the solutions to this week's problems were independently developed. During the code writing and debugging phase, I asked GPT to provide further fixes, as the code I solved was still significantly
-different from the theoretically optimal code, with lower time and space complexity and parameter variable usage. Learning AI-based thinking can help improve your own code quality.
-
+I used AI to find the input rule for the CellRemoval problem. I looked at it for a long time but couldn't understand it. I also implemented JumpyNum by traversal at first, but when I saw that the range required by the problem was 2 billion,
+it would lead to low running efficiency. I asked AI to help me think of a more effective approach.
+I treat ChatGPT like an always-on teacher. I ask it for ideas without providing code, and after I finish writing according to the prompts, it gives me optimization suggestions. It helps me quickly validate my ideas through counterexamples
+and sanity testing. Overall, AI has improved my learning efficiency and made my solutions more principled, efficient, and robust.
 
 
