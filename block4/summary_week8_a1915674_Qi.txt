@@ -16,17 +16,14 @@ Week:	8
 [Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
 
 Problem1: CatGame
-String.valueOf
 
 Problem2: CellRemoval
-Integer.MAX_VALUE
 
 Problem3: RockStar
-map.entrySet()
-map.containsKey
+Math.min
 
 Problem4: JumpyNum
-String.valueOf
+
 
 *******************
 * Challenges  * 
@@ -45,7 +42,7 @@ Problem3: RockStar
 The challenge of this question is to figure out the order in which the songs connect and not mix up the order in which they are played.
 
 Problem4: MagicSpell
-This question did not encounter too much difficulty, and the requirements of the question were completed after two traversals.
+This question is challenging because the range of numerical data is extremely large.I initially wanted to use a double loop to solve this problem, but the efficiency was too low, so I need to find other solutions.
 
 ************************
 * Solution Approach  *
@@ -72,12 +69,12 @@ My solution is as follows: first play ff, then use fs to transition to ss, and f
 If there is no song that begins with f, then start with ss and end with sf
 
 question4:
-My approach: First pass: Collect the original order of the A/Z sequences.
-Store all A/Z sequences in the azArray, from left to right.
-Second pass: Write the A/Z sequences back from right to left.
-Because writing back is from right to left, while reading the azArray is from left to right, the first A/Z sequence collected is placed in the rightmost A/Z sequence,
-and the second in the second-to-last... This effectively reverses the order of all A/Z sequences; non-A/Z sequences remain unchanged (they are not overwritten).
-Finally, the result is returned, converting the modified spellArray into a string and returning it.
+Since direct traversal isn't feasible, I break the problem down. This logic is similar to the DP we used before: once each adjacent digit must differ by at least 2, the valid choices for the next
+digit depend on the previous digit. So I’ll design a bitwise counter: break the upper bound n into a digit array (most-significant to least-significant). Starting from the highest digit,
+I “select digits” one by one to construct all legal numbers not exceeding n, while counting along the way.
+For the interval, compute count(high) and count(low-1) and subtract. During branching, the set of digits we can choose at the current position depends on whether we are tight to the upper bound . If I have not
+started the number yet and choose 0, remain in the leading-zero phase and do not apply the adjacency constraint. Once started, every subsequent digit must differ from the previous digit by at least 2. When all positions
+are processed, count the path only if we have started. We memoize states only when not tight (free states), so each such state is computed once. Single-digit numbers are naturally counted as jumpy.
 
 4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
 Model first, then code; convert text into invariants and formulas; use frequency grouping, extreme value selection, double pointer/double traversal, and other templates to reduce
