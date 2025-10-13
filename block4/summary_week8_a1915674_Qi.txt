@@ -15,25 +15,26 @@ Week:	8
 
 [Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
 
-Problem1: CastleGuards
+Problem1: CatGame
 String.valueOf
 
-Problem2: TimeTravellingCellar
+Problem2: CellRemoval
 Integer.MAX_VALUE
 
-Problem3: ColorfulRabbits
+Problem3: RockStar
 map.entrySet()
 map.containsKey
 
-Problem4: MagicSpell
+Problem4: JumpyNum
 String.valueOf
 
 *******************
 * Challenges  * 
 *******************
 2. What challenges have you faced to solve the given problems?
-Problem1: CastleGuards
-When I saw this question, I thought of using traversal to obtain the data of empty rows and empty columns, but I was a little hesitant about the handling of the intersection of empty rows and empty columns.
+Problem1: CatGame
+My understanding of this question is to get the minimum value between the minimum, maximum, by adding or subtracting a given number based on the original data. So the first step is to sort first,
+and then find the critical point of addition or subtraction, but there are challenges in determining the critical point.
 
 Problem2: TimeTravellingCellar
 This problem can be easily solved by traversing the profit array to get the maximum value and the decay array to get the minimum value.
@@ -53,9 +54,12 @@ This question did not encounter too much difficulty, and the requirements of the
 
 3. Discuss how you approach the problem and how you solve the problem.
 question1:
-My approach is to use a double loop: scan row by row, breaking upon encountering an 'X' to indicate that the row is occupied/safe. If no 'X' is encountered at the end of the row, return rowMissing++.
-A double loop: scan column by column, using the same logic as above, counting columnMissings.
-Returning the max value resolves the "crossover" issue.
+1. First step is to sort the existing array from small to large.
+2. Find the critical point between addition and subtraction
+In the previous step, all the cats were arranged from left to right. Each cat must move X, so the only options are "original position - X" or "original position + X." To minimize the difference,
+I need to find a split point k: at which all cats to the left of k move right, and at k and its right, all cats move left. My solution is to try k from 0 to n. Each time, I linearly scan the new positions
+of all cats, recording the minimum and maximum values. The difference between these values is the result. The minimum value among all k is the answer.
+3. Test and verify the results
 
 question2:
 Find the two largest profit values. maxProfit records the maximum value and its index (value/index).
