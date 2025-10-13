@@ -16,6 +16,7 @@ public class RockStar {
     ans += ss;
 
     int fsRemain = fs - 1;
+
     ans += 2 * Math.min(sf, fsRemain);
     if (sf > fsRemain) ans += 1;
 

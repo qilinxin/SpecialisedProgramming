@@ -30,6 +30,7 @@ public class CellRemoval {
   static class BuildResult {
     final Node[] nodes;
     final int rootId;
+
     BuildResult(Node[] nodes, int rootId) { this.nodes = nodes; this.rootId = rootId; }
   }
 
