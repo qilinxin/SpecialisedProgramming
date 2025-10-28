@@ -7,6 +7,9 @@ public class RunLengthEncoding {
       if (currentChar <= '9' && currentChar >= '0') {
         if (count > 0) {
           count *= 10;
+          if (count > 50) {
+            return "TOO LONG";
+          }
         }
         count += currentChar - '0';
         continue;
@@ -25,7 +28,7 @@ public class RunLengthEncoding {
     return res.toString();
   }
   public static void main(String[] args) {
-     String text = "21Z13S9A8M";
+     String text = "123456789012345678901234567890B";
      String res = decode(text);
      System.out.println(res);
   }
