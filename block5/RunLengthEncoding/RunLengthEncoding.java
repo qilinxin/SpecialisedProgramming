@@ -15,13 +15,13 @@ public class RunLengthEncoding {
       }
       for (int j = 0; j < count; j++) {
         res.append(currentChar);
+        if (res.length() > 50) {
+          return "TOO LONG";
+        }
       }
       count = 0;
     }
 
-    if (res.length() > 50) {
-      return "TOO LONG";
-    }
     return res.toString();
   }
   public static void main(String[] args) {
