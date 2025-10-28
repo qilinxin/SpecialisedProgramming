@@ -35,7 +35,6 @@ public class HouseBuilding {
         "2471255",
         "0000291",
         "1212489"}
-
         ;
     int res = getMinimum(area);
     System.out.println("res === "+res);
