@@ -33,18 +33,12 @@ Problem6: RunLengthEncoding
 * Challenges  * 
 *******************
 2. What challenges have you faced to solve the given problems?
-Problem1: CatGame
-My understanding of this question is to get the minimum value between the minimum, maximum, by adding or subtracting a given number based on the original data. So the first step is to sort first,
-and then find the critical point of addition or subtraction, but there are challenges in determining the critical point.
+Problem1: DengklekBuildingRoads
 
-Problem2: CellRemoval
-The first was understanding the content. It was long and detailed, and I didn't understand the input parameters.
-The second challenge was converting the input array into a tree structure after understanding the problem. Since Java doesn't have a native tree structure, I had to implement it myself.
-The third challenge was how to count the number of valid cells after implementing the tree structure.
+Problem2: RoughStrings
 
 Problem3: PrefixFreeSets
-The key difficulty was determining the minimum. My initial idea was to use the average value as a proxy, but a counterexample showed this was invalid. After realizing the inputs are digits (‘0’–‘9’) only,
-I switched to an exhaustive check over all 10 candidates and selected the minimum.
+The key was to figure out the sorting idea; once sorted, the array became easy to handle.
 
 Problem4: HouseBuilding
 The key difficulty was determining the minimum. My initial idea was to use the average value as a proxy, but a counterexample showed this was invalid. After realizing the inputs are digits (‘0’–‘9’) only,
@@ -62,24 +56,11 @@ The most challenging part was the sheer number of cases. Initially, I could not 
 ************************
 
 3. Discuss how you approach the problem and how you solve the problem.
-question1:
-1. First step is to sort the existing array from small to large.
-2. Find the critical point between addition and subtraction
-In the previous step, all the cats were arranged from left to right. Each cat must move X, so the only options are "original position - X" or "original position + X." To minimize the difference,
-I need to find a split point k: at which all cats to the left of k move right, and at k and its right, all cats move left. My solution is to try k from 0 to n. Each time, I linearly scan the new positions
-of all cats, recording the minimum and maximum values. The difference between these values is the result. The minimum value among all k is the answer.
-3. Test and verify the results
 
-question2:
-My solution to this problem is to first define a custom node and create nodes for all nodes numbered i.
-Second, create a corresponding tree based on the node, attaching node i to its parent node based on parent[i]. The subscript where parent[i] == -1 is the root.
-Third, retrieve the result. If the deleted node is the root, return 0. Otherwise, perform a DFS from the root: skip the entire tree if a deleted node is encountered;
-recursively count the number of leaves for each child node; if the current node has no "still existing" children, it is a leaf node.
-Finally, summarize the results.
-
-question3:
-My solution is as follows: first play ff, then use fs to transition to ss, and finally alternate sf and fs until one of them is 0. Based on this, use conditionals to make judgments to get the final result.
-If there is no song that begins with f, then start with ss and end with sf
+Problem3: PrefixFreeSets
+This problem requires us to find the maximum number of words with unique prefixes. Therefore, the best approach is to sort the data first. Java sorts strings in ascending lexicographic (Unicode) order by default,
+which matches dictionary order and makes the subsequent logic straightforward.
+I keep a global counter res. While scanning the sorted array, I check whether words[i+1] starts with words[i]. If not—or if i is the last index—I increment res
 
 Problem4: HouseBuilding
 This problem requires us to level an entire region with the minimum total cost. Each +1 or -1 operation costs 1 unit, and the input is guaranteed to be a grid containing only numeric characters ('0'–'9'), where each character
@@ -105,15 +86,16 @@ Second:I validated the output length only after constructing the string, which l
 Try to think about problems as comprehensively as possible.
 
 5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
-Algorithmic design, algorithm design is very clever. Although the code this week is not as complicated as the previous one, I did not handle the original DP well, and I still need to continue to invest time.
+I focused mainly on coding. My goal was to “get my hands back” and rebuild my coding intuition and rhythm. Even though algorithms are very important, in real industry work there are not many roles that only do algorithms; most developers
+spend more time on implementing business logic and building reliable features. So for me, improving my coding practice and implementation skills was the most realistic and valuable focus.
 
 6. What are your goals for the next practice problems?
 This is the last week's assignment; I hope I can get a satisfactory score on the exam.
 
 7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
-I used AI to find the input rule for the CellRemoval problem. I looked at it for a long time but couldn't understand it. I also implemented JumpyNum by traversal at first, but when I saw that the range required by the problem was 2 billion,
-it would lead to low running efficiency. I asked AI to help me think of a more effective approach.
-I treat ChatGPT like an always-on teacher. I ask it for ideas without providing code, and after I finish writing according to the prompts, it gives me optimization suggestions. It helps me quickly validate my ideas through counterexamples
-and sanity testing. Overall, AI has improved my learning efficiency and made my solutions more principled, efficient, and robust.
+Yes, I used the AI tool ChatGPT for this assignment. The last four problems I chose weren't inherently difficult in terms of algorithmic complexity, but the problem descriptions and test cases were challenging to understand.
+I had the AI explain the actual requirements of each problem and interpret the example test cases in clearer language. This saved me a significant amount of reading time and reduced misunderstandings of the requirements.
+
+ChatGPT helped me become a better problem solver by clarifying ambiguous tasks, providing quick feedback on design choices, and allowing me to focus more on reasoning and coding rather than getting bogged down in vague descriptions.
 
 

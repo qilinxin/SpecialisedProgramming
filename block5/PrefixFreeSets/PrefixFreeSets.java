@@ -4,6 +4,7 @@ public class PrefixFreeSets {
 
   public static int maxElements(String[] words) {
     Arrays.sort(words);
+//    System.out.println(Arrays.toString(words));
     int res = 0;
     for (int i = 0; i < words.length; i++) {
       boolean isContain = false;
@@ -22,7 +23,7 @@ public class PrefixFreeSets {
   }
 
   public static void main(String[] args) {
-    String[] words = {"ab","abc","abd","abe","rerun","running"};
+    String[] words = {"ab","b","acb","abcd","abd","abe","rerun","running"};
 
     int res = maxElements(words);
     System.out.println(res);
