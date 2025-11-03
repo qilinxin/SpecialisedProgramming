@@ -1,0 +1,119 @@
+Course: COMP SCI 7007 – Specialised Programming, Semester 1/2025.         
+
+Name: Linxin Qi
+ID: a1915674
+Practice problem/Exam and number:
+
+Week:	12
+
+*******************
+* Description  * 
+*******************
+
+
+1. List the problems you attempted, and Java API Classes and methods you used to solve each problem.
+
+[Eg. SlowKeyBoard: ArrayList (size, add, get), Arrays.sort]
+
+Problem1: DengklekBuildingRoads
+
+Problem2: RoughStrings
+
+Problem3: PrefixFreeSets
+Math.min
+
+Problem4: HouseBuilding
+
+Problem5: BlackAndWhiteSolitaire
+
+Problem6: RunLengthEncoding
+
+
+*******************
+* Challenges  * 
+*******************
+2. What challenges have you faced to solve the given problems?
+Problem1: CatGame
+My understanding of this question is to get the minimum value between the minimum, maximum, by adding or subtracting a given number based on the original data. So the first step is to sort first,
+and then find the critical point of addition or subtraction, but there are challenges in determining the critical point.
+
+Problem2: CellRemoval
+The first was understanding the content. It was long and detailed, and I didn't understand the input parameters.
+The second challenge was converting the input array into a tree structure after understanding the problem. Since Java doesn't have a native tree structure, I had to implement it myself.
+The third challenge was how to count the number of valid cells after implementing the tree structure.
+
+Problem3: PrefixFreeSets
+The key difficulty was determining the minimum. My initial idea was to use the average value as a proxy, but a counterexample showed this was invalid. After realizing the inputs are digits (‘0’–‘9’) only,
+I switched to an exhaustive check over all 10 candidates and selected the minimum.
+
+Problem4: HouseBuilding
+The key difficulty was determining the minimum. My initial idea was to use the average value as a proxy, but a counterexample showed this was invalid. After realizing the inputs are digits (‘0’–‘9’) only,
+I switched to an exhaustive check over all 10 candidates and selected the minimum.
+
+Problem5: BlackAndWhiteSolitaire
+The challenge is that the string can start with two different letters, which requires extra handling.
+
+Problem6: RunLengthEncoding
+The most challenging part was the sheer number of cases. Initially, I could not cover them all, so I ended up fixing bugs reactively based on the Gradescope feedback.
+
+
+************************
+* Solution Approach  *
+************************
+
+3. Discuss how you approach the problem and how you solve the problem.
+question1:
+1. First step is to sort the existing array from small to large.
+2. Find the critical point between addition and subtraction
+In the previous step, all the cats were arranged from left to right. Each cat must move X, so the only options are "original position - X" or "original position + X." To minimize the difference,
+I need to find a split point k: at which all cats to the left of k move right, and at k and its right, all cats move left. My solution is to try k from 0 to n. Each time, I linearly scan the new positions
+of all cats, recording the minimum and maximum values. The difference between these values is the result. The minimum value among all k is the answer.
+3. Test and verify the results
+
+question2:
+My solution to this problem is to first define a custom node and create nodes for all nodes numbered i.
+Second, create a corresponding tree based on the node, attaching node i to its parent node based on parent[i]. The subscript where parent[i] == -1 is the root.
+Third, retrieve the result. If the deleted node is the root, return 0. Otherwise, perform a DFS from the root: skip the entire tree if a deleted node is encountered;
+recursively count the number of leaves for each child node; if the current node has no "still existing" children, it is a leaf node.
+Finally, summarize the results.
+
+question3:
+My solution is as follows: first play ff, then use fs to transition to ss, and finally alternate sf and fs until one of them is 0. Based on this, use conditionals to make judgments to get the final result.
+If there is no song that begins with f, then start with ss and end with sf
+
+Problem4: HouseBuilding
+This problem requires us to level an entire region with the minimum total cost. Each +1 or -1 operation costs 1 unit, and the input is guaranteed to be a grid containing only numeric characters ('0'–'9'), where each character
+represents the height of the cell. If the difference between the highest and lowest heights in the final grid does not exceed 1 (i.e., max − min ≤ 1), it is considered "leveled".
+
+My approach is to find a value h, where the minimum cost to change the height a of each cell is to change it to the closer value between h and h+1. The corresponding cost per cell is: min{|a−h|, |a−(h+1)|}.
+By iterating through all cells and calculating the sum of the costs, we obtain the total cost for the target interval {h, h+1}. The minimum cost among all h values is the answer.
+
+Since the input height is between 0 and 9, I only need to enumerate h ∈ {0,1,…,9}. For each h = 0..9, I iterate through all cell heights a and accumulate min{∣a−h∣, ∣a−(h+1)∣}. I record the minimum total cost using a global
+ minimum and return the global minimum.
+
+
+Problem 5: BlackAndWhiteSolitaire
+The solution is straightforward: iterate through the string and ensure the next letter differs from the current one. If two consecutive letters are the same, increment the count and update the current letter.
+The result is sensitive to the initial letter. To address this, I evaluate both initializations by running two iterations—one per starting letter—and keep the optimal result.
+
+Problem6: RunLengthEncoding
+The solution is straightforward: iterate over the string. If a character is a digit, treat it as the repeat count for the next letter; if it’s a letter, append it to the output using the most recent count (default 1) and then reset the count.
+First improvement:I didn’t account for multi-digit counts (e.g., “12A”), so the parser treated only a single digit.
+Second:I validated the output length only after constructing the string, which led to an out-of-memory error.
+
+4. What did you learn from the problem? How this problem type of problems will help you to be a better problem solver?
+Try to think about problems as comprehensively as possible.
+
+5. Which area you focused on improving (eg. speed, fluency, algorithmic design, coding)?
+Algorithmic design, algorithm design is very clever. Although the code this week is not as complicated as the previous one, I did not handle the original DP well, and I still need to continue to invest time.
+
+6. What are your goals for the next practice problems?
+This is the last week's assignment; I hope I can get a satisfactory score on the exam.
+
+7. Have you used any AI tool such as ChatGPT? How have you used it and explain this tool is helping you to be a better problem solver?
+I used AI to find the input rule for the CellRemoval problem. I looked at it for a long time but couldn't understand it. I also implemented JumpyNum by traversal at first, but when I saw that the range required by the problem was 2 billion,
+it would lead to low running efficiency. I asked AI to help me think of a more effective approach.
+I treat ChatGPT like an always-on teacher. I ask it for ideas without providing code, and after I finish writing according to the prompts, it gives me optimization suggestions. It helps me quickly validate my ideas through counterexamples
+and sanity testing. Overall, AI has improved my learning efficiency and made my solutions more principled, efficient, and robust.
+
+
